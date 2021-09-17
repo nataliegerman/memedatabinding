@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MVVMDataBinding</string>
+    <string name="top_hint">Top title</string>
+    <string name="bottom_hint">Bottom title</string>
+    <string name="try_btn">Try</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_image">Select image</string>
+</resources>

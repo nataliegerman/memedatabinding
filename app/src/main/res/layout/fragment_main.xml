@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="fragmentViewModel"
+            type="com.example.mvvmdatabinding.data.model.LoginViewModel" />
+    </data>
+
+    <FrameLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.viewmodels.view.MainFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/inEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/bottom_hint"
+                android:inputType="textEmailAddress"
+                style="@style/EditText" />
+
+            <EditText
+                android:id="@+id/inPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/top_hint"
+                style="@style/EditText" />
+
+            <ImageView
+                android:id="@+id/selectedImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/preview_img"
+                android:test="@{fragmentViewModel.selectedImageUrl}"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+
+                android:text="@string/try_btn" />
+<!--            android:onClick="@{()-> fragmentViewModel.onLoginClicked()}"-->
+<!--            bind:toastMessage="@{fragmentViewModel.toastMessage}"-->
+            <Button
+                android:id="@+id/selectImageBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="@{()-> fragmentViewModel.onLoginClicked()}"
+                bind:toastMessage="@{fragmentViewModel.toastMessage}"
+                android:text="@string/select_image" />
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

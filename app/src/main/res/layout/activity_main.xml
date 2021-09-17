@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--        <EditText-->
+<!--            android:id="@+id/inPassword"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/top_hint"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="@={myViewModel.employeePassword}" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/inEmail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/bottom_hint"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="@={myViewModel.employeeEmail}" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/selectedImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:src="@drawable/preview_img"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:test="@{myViewModel.selectedImageUrl}"/>-->
+
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:onClick="@{()-> myViewModel.onLoginClicked()}"-->
+<!--            android:text="@string/try_btn"-->
+<!--            bind:toastMessage="@{myViewModel.toastMessage}" />-->
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
