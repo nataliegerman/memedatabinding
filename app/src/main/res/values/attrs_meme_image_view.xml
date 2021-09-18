@@ -3,7 +3,7 @@
         <attr name="topTitle" format="string" />
         <attr name="bottomTitle" format="string" />
         <attr name="defaultImage" format="integer" />
-        <attr name="exampleDimension" format="dimension" />
+        <attr name="imageUrl" format="string" />
         <attr name="exampleColor" format="color" />
         <attr name="exampleDrawable" format="color|reference" />
     </declare-styleable>

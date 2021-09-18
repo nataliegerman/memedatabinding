@@ -7,31 +7,30 @@ import androidx.databinding.BindingAdapter;
 import com.bumptech.glide.Glide;
 
 public class Meme {
-    private String email;
-    private String password;
-
+    private String topTitle;
+    private String bottomTitle;
     private String imageUrl;
 
-    public Meme(String email, String password, String imageUrl) {
-        this.email = email;
-        this.password = password;
+    public Meme(String topTitle, String bottomTitle, String imageUrl) {
+        this.topTitle = topTitle;
+        this.bottomTitle = bottomTitle;
         this.imageUrl = imageUrl;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTopTitle(String topTitle) {
+        this.topTitle = topTitle;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTopTitle() {
+        return topTitle;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setBottomTitle(String bottomTitle) {
+        this.bottomTitle = bottomTitle;
     }
 
-    public String getPassword() {
-        return password;
+    public String getBottomTitle() {
+        return bottomTitle;
     }
 
     public String getImageUrl() {
@@ -42,7 +41,7 @@ public class Meme {
         this.imageUrl = imageUrl;
     }
 
-    @BindingAdapter("android:test")
+    @BindingAdapter("android:loadDefaultImage")
     public static void loadImage(ImageView imageView, String imageUrl) {
         Glide.with(imageView).load(imageUrl).into(imageView);
     }

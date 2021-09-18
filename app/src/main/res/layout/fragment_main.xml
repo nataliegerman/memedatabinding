@@ -51,7 +51,6 @@
 
             <com.example.mvvmdatabinding.ui.viewmodels.view.MemeImageView
                 android:id="@+id/customImage"
-                style="@style/Widget.Theme.MVVMDataBinding.MyView"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"

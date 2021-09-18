@@ -31,7 +31,6 @@ public class MemeImageView extends ConstraintLayout {
     private ImageView imageView;
 
     private int mExampleColor = Color.RED;
-    private float mExampleDimension = 0;
 
 
     public MemeImageView(Context context, AttributeSet attrs) {
@@ -53,9 +52,7 @@ public class MemeImageView extends ConstraintLayout {
         try {
             mTopTitleString = a.getString(R.styleable.MemeImageView_topTitle);
             mBottomTitleString = a.getString(R.styleable.MemeImageView_bottomTitle);
-
             mExampleColor = a.getColor(R.styleable.MemeImageView_exampleColor, mExampleColor);
-            mExampleDimension = a.getDimension(R.styleable.MemeImageView_exampleDimension, mExampleDimension);
 
             imageView = findViewById(R.id.memeImage);
             topTitle = findViewById(R.id.memeTopTitle);
@@ -78,12 +75,6 @@ public class MemeImageView extends ConstraintLayout {
         bottomTitle.setText(mBottomTitleString);
     }
 
-    public void setImageBitmap(Bitmap bitmap) {
-        imageView.setImageBitmap(bitmap);
-    }
-    public void setImageDrawable(Drawable drawable) {
-        imageView.setImageDrawable(drawable);
-    }
     public void setImageUri(Uri uri) {
         imageView.setImageURI(uri);
     }

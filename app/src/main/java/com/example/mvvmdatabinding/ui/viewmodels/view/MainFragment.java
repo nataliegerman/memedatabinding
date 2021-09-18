@@ -3,21 +3,18 @@ package com.example.mvvmdatabinding.ui.viewmodels.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.FileProvider;
-import androidx.databinding.BindingAdapter;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.mvvmdatabinding.data.model.MemeViewModel;
@@ -50,7 +47,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_main, container, false);
         FragmentMainBinding fragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false);
-//        //here data must be an instance of the class MemeViewModel
+        //here data must be an instance of the class MemeViewModel
         //set registerForActivityResult
         selectImageActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -79,40 +76,20 @@ public class MainFragment extends Fragment {
 //        }
 //    }
 
-//    @BindingAdapter({"selectImage"})
+    //    @BindingAdapter({"selectImage"})
     private void openGalleryToSelectImage() {
         Intent pickImageIntent = new Intent();
         pickImageIntent.setType("image/*");
         pickImageIntent.setAction(Intent.ACTION_PICK);
         selectImageActivityResultLauncher.launch(pickImageIntent);
     }
-/********** TODO refactor this code **********/
-    //share
-    private void shareImage(BitmapDrawable bitmapDrawable, String text) {
-        Bitmap bitmap = bitmapDrawable.getBitmap();
-        Uri uri = getImageToShare(bitmap);
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        // putting uri of image to be shared
-        intent.putExtra(Intent.EXTRA_STREAM, uri);
-        // adding text to share
-        intent.putExtra(Intent.EXTRA_TEXT, text);
-        // Add subject Here
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here");
-        // setting type to image
-        intent.setType("image/png");
-        // calling startactivity() to share
-        startActivity(Intent.createChooser(intent, "Share Via"));
-    }
+
 
     private void shareImageBitmap(Bitmap bitmap) {
         Uri uri = getImageToShare(bitmap);
         Intent intent = new Intent(Intent.ACTION_SEND);
         // putting uri of image to be shared
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        // adding text to share
-//        intent.putExtra(Intent.EXTRA_TEXT, text);
-        // Add subject Here
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here");
         // setting type to image
         intent.setType("image/png");
         // calling startactivity() to share
@@ -125,7 +102,8 @@ public class MainFragment extends Fragment {
         Uri uri = null;
         try {
             imagefolder.mkdirs();
-            File file = new File(imagefolder, "shared_image.png");
+            String filename = "meme_" + System.currentTimeMillis() + ".png";
+            File file = new File(imagefolder, filename);
             FileOutputStream outputStream = new FileOutputStream(file);
             bitmap.compress(Bitmap.CompressFormat.PNG, 90, outputStream);
             outputStream.flush();
@@ -156,9 +134,10 @@ public class MainFragment extends Fragment {
             file = new File(dir, "MyMemes");
             if (!file.exists()) {
                 file.mkdirs();
-
             }
-            f = new File(file.getAbsolutePath() + File.separator + "filename" + ".png");
+            String filename = "meme_" + System.currentTimeMillis();
+            f = new File(file.getAbsolutePath() + File.separator + filename + ".png");
+
             FileOutputStream ostream = null;
             try {
                 ostream = new FileOutputStream(f);
@@ -166,6 +145,7 @@ public class MainFragment extends Fragment {
                 e.printStackTrace();
             }
             bitmap.compress(Bitmap.CompressFormat.PNG, 10, ostream);
+
             shareImageBitmap(bitmap);
 
             try {
