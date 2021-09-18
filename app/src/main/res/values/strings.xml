@@ -6,4 +6,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_image">Select image</string>
+    <string name="share">share</string>
+    <string name="app_title">Your MEME</string>
+    <string name="save_btn">save</string>
 </resources>

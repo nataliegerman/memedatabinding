@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="fragmentViewModel"
-            type="com.example.mvvmdatabinding.data.model.LoginViewModel" />
+            type="com.example.mvvmdatabinding.data.model.MemeViewModel" />
     </data>
 
     <FrameLayout
@@ -14,51 +15,86 @@
         tools:context=".ui.viewmodels.view.MainFragment">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/inEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/bottom_hint"
-                android:inputType="textEmailAddress"
-                style="@style/EditText" />
-
-            <EditText
-                android:id="@+id/inPassword"
+                android:id="@+id/topTitleInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/top_hint"
-                style="@style/EditText" />
+                style="@style/EditText"
+                android:onTextChanged="@{fragmentViewModel.onTopTextChanged}"
+                android:background="@drawable/rounded_edit_text" />
 
-            <ImageView
-                android:id="@+id/selectedImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/preview_img"
-                android:test="@{fragmentViewModel.selectedImageUrl}"/>
-
-            <Button
-                android:id="@+id/button"
+            <EditText
+                android:id="@+id/bottomTitleInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:hint="@string/bottom_hint"
+                style="@style/EditText"
+                android:onTextChanged="@{fragmentViewModel.onBottomTextChanged}"
+                android:background="@drawable/rounded_edit_text" />
 
-                android:text="@string/try_btn" />
-<!--            android:onClick="@{()-> fragmentViewModel.onLoginClicked()}"-->
-<!--            bind:toastMessage="@{fragmentViewModel.toastMessage}"-->
+<!--            <ImageView-->
+<!--                android:id="@+id/selectedImage"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:src="@drawable/preview_img"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:loadDefaultImage="@{fragmentViewModel.selectedImageUrl}"/>-->
+
+
+            <com.example.mvvmdatabinding.ui.viewmodels.view.MemeImageView
+                android:id="@+id/customImage"
+                style="@style/Widget.Theme.MVVMDataBinding.MyView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:exampleDrawable="@android:drawable/ic_menu_add"
+                app:topTitle="@{fragmentViewModel.memeTopTitle}"
+                app:bottomTitle="@{fragmentViewModel.memeBottomTitle}"/>
+
             <Button
                 android:id="@+id/selectImageBtn"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/select_image"
+                style="@style/ButtonStyle"/>
+<!--            android:onClick="@{()-> fragmentViewModel.onLoginClicked()}"-->
+<!--            bind:toastMessage="@{fragmentViewModel.toastMessage}"-->
+<!--            <Button-->
+<!--                android:id="@+id/button"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:onClick="@{()-> fragmentViewModel.onTryClicked()}"-->
+<!--                bind:toastMessage="@{fragmentViewModel.toastMessage}"-->
+<!--                style="@style/ButtonStyle"-->
+<!--                android:text="@string/try_btn" />-->
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:onClick="@{()-> fragmentViewModel.onLoginClicked()}"
-                bind:toastMessage="@{fragmentViewModel.toastMessage}"
-                android:text="@string/select_image" />
+                android:onClick="@{()-> fragmentViewModel.onTryClicked()}"
+                style="@style/ButtonStyle"
+                android:text="@string/share" />
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/share_btn"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:background="@drawable/share_btn"-->
+<!--                android:text="@string/share" />-->
+
         </LinearLayout>
 
     </FrameLayout>
